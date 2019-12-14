@@ -33,15 +33,15 @@ namespace MeassureUnitTest
             // Assert
             var items = Assert.IsType<List<PersonalMeasurement>>(okResult.Value);
         }
-        [Fact]
-        public void GetById_UnknownGuidPassed_ReturnsNotFoundResult()
-        {
-            // Act
-            var notFoundResult = _controller.GetById(0);
+        //[Fact]
+        //public void GetById_UnknownGuidPassed_ReturnsNotFoundResult()
+        //{
+        //    // Act
+        //    var notFoundResult = _controller.GetById(0);
 
-            // Assert
-            Assert.IsType<NotFoundResult>(notFoundResult.Result);
-        }
+        //    // Assert
+        //    Assert.IsType<NotFoundResult>(notFoundResult.Result);
+        //}
 
         [Fact]
         public void GetById_ExistingGuidPassed_ReturnsOkResult()
