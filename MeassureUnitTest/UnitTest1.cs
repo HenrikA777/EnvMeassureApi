@@ -114,20 +114,20 @@ namespace MeassureUnitTest
             Assert.Equal(testItem.Pressure, item.Pressure);
         }
 
-        //[Fact]
-        //public void Remove_ExistingGuidPassed_ReturnsOkResult()
-        //{
-        //    // Arrange
-        //    var okResult = _controller.GetAll().Result as OkObjectResult;
-        //    List<PersonalMeasurement> meassurements = okResult.Value as List<PersonalMeasurement>;
-        //    int existingId = meassurements.Last().Id.GetValueOrDefault(0);
+        [Fact]
+        public void Remove_ExistingGuidPassed_ReturnsOkResult()
+        {
+            // Arrange
+            var okResult = _controller.GetAll().Result as OkObjectResult;
+            List<PersonalMeasurement> meassurements = okResult.Value as List<PersonalMeasurement>;
+            int existingId = meassurements.Last().Id.GetValueOrDefault(0);
 
-        //    // Act
-        //    var okResponse = _controller.Delete(existingId) as OkObjectResult;
-        //    int? rowsAffected = okResponse.Value as int?;
-        //    // Assert
-        //    Assert.Equal(1 ,rowsAffected.GetValueOrDefault(0));
-        //}
-        
+            // Act
+            var okResponse = _controller.Delete(existingId) as OkObjectResult;
+            int? rowsAffected = okResponse.Value as int?;
+            // Assert
+            Assert.Equal(1, rowsAffected.GetValueOrDefault(0));
+        }
+
     }
 }
