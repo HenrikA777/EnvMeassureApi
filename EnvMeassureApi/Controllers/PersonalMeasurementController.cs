@@ -49,7 +49,7 @@ namespace EnvMeassureApi.Controllers
 
         // GET: api/PersonalMeasurement/5
         [HttpGet("{id}", Name = "Get")]
-        public ActionResult<IEnumerable<PersonalMeasurement>> GetById(int id)
+        public ActionResult<IEnumerable<PersonalMeasurement>> GetById(string id)
         {
             string sql = $"Select * from dbo.PersonalMeasurements Where UID={id}";
 

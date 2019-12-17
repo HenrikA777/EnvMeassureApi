@@ -47,7 +47,7 @@ namespace MeassureUnitTest
         public void GetById_ExistingGuidPassed_ReturnsOkResult()
         {
             // Arrange
-            var testid = 123;
+            var testid = "123";
 
             // Act
             var okResult = _controller.GetById(testid);
@@ -60,14 +60,14 @@ namespace MeassureUnitTest
         public void GetById_ExistingGuidPassed_ReturnsRightItem()
         {
             // Arrange
-            var testid = 123;
+            var testid = "123";
 
             // Act
             var okResult = _controller.GetById(testid).Result as OkObjectResult;
 
             // Assert
             Assert.IsType<List<PersonalMeasurement>>(okResult.Value);
-            Assert.Equal(testid, (okResult.Value as List<PersonalMeasurement>)[0].UId);
+            Assert.Equal(testid, (okResult.Value as List<PersonalMeasurement>)[0].UId.ToString());
         }
         [Fact]
         public void Add_InvalidObjectPassed_ReturnsBadRequest()
