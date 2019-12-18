@@ -51,7 +51,16 @@ namespace EnvMeassureApi.Controllers
         [HttpGet("{id}", Name = "Get")]
         public ActionResult<IEnumerable<PersonalMeasurement>> GetById(string id)
         {
-            string sql = $"Select * from dbo.PersonalMeasurements Where UID={id}";
+            int uid;
+            try
+            {
+                uid = Int32.Parse(id);
+            }
+            catch (Exception e)
+            {
+                return BadRequest();
+            }
+            string sql = $"Select * from dbo.PersonalMeasurements Where UID={uid}";
 
             var result = new List<PersonalMeasurement>();
             using (var databaseConnection = new SqlConnection(conn))

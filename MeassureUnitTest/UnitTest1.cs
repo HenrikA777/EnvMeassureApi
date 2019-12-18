@@ -128,6 +128,18 @@ namespace MeassureUnitTest
         //    // Assert
         //    Assert.Equal(1, rowsAffected.GetValueOrDefault(0));
         //}
+        [Fact]
+        public void GetById_SqlInjection_ReturnsBadRequest()
+        {
+            // Arrange
+            string sql = "1 OR 1=1";
+
+            //Act
+            var response = _controller.GetById(sql);
+
+            // Assert
+            Assert.IsType<BadRequestResult>(response.Result);
+        }
 
     }
 }
